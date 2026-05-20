@@ -1,0 +1,19 @@
+{
+  "name": "clinicalmatch-ai",
+  "version": "1.0.0",
+  "description": "AI Clinical Trial and RAG Assistant",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8080"
+  },
+  "keywords": [
+    "clinical-trials",
+    "rag",
+    "ai-assistant"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

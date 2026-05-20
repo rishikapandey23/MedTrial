@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
 import api from '../services/api';
 
 export const AuthContext = createContext(null);
@@ -14,9 +13,8 @@ export const AuthProvider = ({ children }) => {
  const bootstrapAuth = async () => {
   if (token) {
   try {
-   // Set authorization header explicitly for bootstrap query
-   const response = await axios.get('/api/auth/me', {
-   headers: { Authorization: `Bearer ${token}` }
+   const response = await api.get('/api/auth/me', {
+    headers: { Authorization: `Bearer ${token}` }
    });
    setUser(response.data);
   } catch (error) {
@@ -34,7 +32,7 @@ export const AuthProvider = ({ children }) => {
  params.append('username', email);
  params.append('password', password);
 
- const response = await axios.post('/api/auth/login', params, {
+ const response = await api.post('/api/auth/login', params, {
   headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
  });
 
@@ -46,7 +44,7 @@ export const AuthProvider = ({ children }) => {
  };
 
  const register = async (name, email, password, role) => {
- const response = await axios.post('/api/auth/register', {
+ const response = await api.post('/api/auth/register', {
   name,
   email,
   password,

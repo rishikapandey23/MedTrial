@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL || '';
 const api = axios.create({
- baseURL: '', // Vite dev proxy redirects relative /api paths to http://localhost:8000
+ baseURL: backendUrl,
 });
 
 // Request interceptor to attach JWT tokens and user-level Gemini Key overrides
